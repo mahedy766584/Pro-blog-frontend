@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@import '@fontsource-variable/roboto';
+@import '@fontsource/poppins/100-italic.css';
+@import '@fontsource/poppins/200-italic.css';
+@import '@fontsource/poppins/300-italic.css';
+@import '@fontsource/poppins/400-italic.css';
+@import '@fontsource/poppins/500-italic.css';
+@import '@fontsource/poppins/600-italic.css';
+@import '@fontsource/poppins/700-italic.css';
+@import '@fontsource/poppins/800-italic.css';
+@import '@fontsource/poppins/900-italic.css';
+
+
+@utility font-body {
+  font-family: "Roboto", sans-serif;
+}
+
+@utility font-heading {
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --bg-main: #ffffff; 
+  --bg-secondary: #f5f5f5; 
+  
+  --text-main: #242424; 
+  --text-secondary: #6b6b6b;
+  
+  --accent: #1a8917; 
+  --border: #e0e0e0;
+}
+
+.dark {
+  --bg-main: #121212;
+  --bg-secondary: #1e1e1e;
+
+  --text-main: #e6e6e6;
+  --text-secondary: #9d9d9d;
+
+  --accent: #20b659;
+  --border: #2c2c2c;
+}
+
+
+@utility bg-main {
+  background-color: var(--bg-main);
+}
+@utility bg-sec {
+  background-color: var(--bg-secondary);
+}
+
+@utility text-main {
+  color: var(--text-main);
+}
+@utility text-sec {
+  color: var(--text-secondary);
+}
+
+@utility border-main {
+  border-color: var(--border);
+}
+
+@utility text-accent {
+  color: var(--accent);
+}
+@utility bg-accent {
+  background-color: var(--accent);
+}
+
+body{
+  background-color: var(--bg-main);
+}
