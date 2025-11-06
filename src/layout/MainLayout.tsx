@@ -17,8 +17,8 @@ const MainLayout = () => {
                 {/* Sidebar */}
                 <div
                     className={`
-                    h-full bg-glass backdrop-blur-xl shadow-xl transition-all duration-500 ease-in-out
-                    ${isSidebarOpen ? "w-60 opacity-100" : "-ml-44"}
+                    h-full bg-glass backdrop-blur-xl  transition-all duration-500 ease-in-out
+                    ${isSidebarOpen ? "w-60 opacity-100" : "-ml-40"}
                     overflow-hidden
                         `}
                 >
@@ -38,7 +38,7 @@ const MainLayout = () => {
                     `}
                 >
                     <Outlet />
-                    <h1 className="mt-8 ml-14">Middle side</h1>
+                    <h1 className={`mt-8 ${isSidebarOpen? '': 'ml-9'}`}>Middle side</h1>
                 </div>
 
                 {/* Right Sidebar */}
