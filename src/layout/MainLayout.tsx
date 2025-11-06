@@ -22,7 +22,7 @@ const MainLayout = () => {
                     overflow-hidden
                         `}
                 >
-                    <nav className="flex flex-col gap-6 mt-6 px-4">
+                    <nav className="flex flex-col gap-6 mt-6">
                         {navLinks.map((link) => (
                             <ActiveLink key={link.to} to={link.to} label={link.label} Icon={link.Icon} />
                         ))}
@@ -32,13 +32,13 @@ const MainLayout = () => {
                 {/* Middle Content */}
                 <div
                     className={`
-                        border-x border-main h-full transition-all duration-500 ease-in-out
+                        border-x relative border-main h-full transition-all duration-500 ease-in-out
                         ${isSidebarOpen ? "flex-[0.6]" : "flex-[0.7]"}
                         px-6
                     `}
                 >
                     <Outlet />
-                    <h1 className="mt-8 ml-6">Middle side</h1>
+                    <h1 className="mt-8 ml-14">Middle side</h1>
                 </div>
 
                 {/* Right Sidebar */}
