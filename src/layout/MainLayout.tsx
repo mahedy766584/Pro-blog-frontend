@@ -1,29 +1,56 @@
 import ActiveLink from "@/components/sidebar/ActiveLink";
 import { navLinks } from "@/components/sidebar/navlinks";
 import Header from "@/shared/Header";
-import { Col, Row } from "antd";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+
     return (
-        <div>
-            <Header />
-            <Row>
-                <Col span={4} className="w-full h-screen">
-                    <nav className="flex flex-col gap-6 text-start">
+        <div className="h-screen overflow-hidden">
+            <Header onMenuClick={toggleSidebar} />
+
+            <div className="flex h-[calc(100vh-70px)] transition-all duration-500 ease-in-out">
+
+                {/* Sidebar */}
+                <div
+                    className={`
+                    h-full bg-glass backdrop-blur-xl shadow-xl transition-all duration-500 ease-in-out
+                    ${isSidebarOpen ? "w-60 opacity-100" : "-ml-44"}
+                    overflow-hidden
+                        `}
+                >
+                    <nav className="flex flex-col gap-6 mt-6 px-4">
                         {navLinks.map((link) => (
                             <ActiveLink key={link.to} to={link.to} label={link.label} Icon={link.Icon} />
                         ))}
                     </nav>
-                </Col>
-                <Col span={14} className=" w-full h-screen border-x-[0.8px] border-main">
+                </div>
+
+                {/* Middle Content */}
+                <div
+                    className={`
+                        border-x border-main h-full transition-all duration-500 ease-in-out
+                        ${isSidebarOpen ? "flex-[0.6]" : "flex-[0.7]"}
+                        px-6
+                    `}
+                >
                     <Outlet />
-                    <h1>Middle side</h1>
-                </Col>
-                <Col span={6} className=" w-full h-screen">
-                    <h1>Right side</h1>
-                </Col>
-            </Row>
+                    <h1 className="mt-8 ml-6">Middle side</h1>
+                </div>
+
+                {/* Right Sidebar */}
+                <div
+                    className={`
+            h-full transition-all duration-500 ease-in-out
+            ${isSidebarOpen ? "flex-[0.3]" : "flex-[0.3]"}
+        `}
+                >
+                    <h1 className="mt-8">Right side</h1>
+                </div>
+            </div>
         </div>
     );
 };
