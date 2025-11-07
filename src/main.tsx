@@ -5,12 +5,15 @@ import '@ant-design/v5-patch-for-react-19';
 import { RouterProvider } from 'react-router-dom'
 import router from './routes/routes.tsx'
 import { Provider } from 'react-redux'
-import { store } from './app/store.ts'
+import { store } from './redux/store.ts';
+import AppProvider from './AppProvider.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <AppProvider>
+        <RouterProvider router={router} />
+      </AppProvider>
     </Provider>
   </StrictMode>,
 )

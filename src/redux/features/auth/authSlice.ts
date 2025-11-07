@@ -1,4 +1,4 @@
-import type { RootState } from "@/app/store";
+import type { RootState } from "@/redux/store";
 import { createSlice } from "@reduxjs/toolkit";
 
 type TUser = {

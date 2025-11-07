@@ -1,4 +1,3 @@
-// src/components/navbar/navLinks.ts
 import { Home, BookOpen, User, PenTool, BarChart2 } from "lucide-react";
 
 export type TNavLink = {

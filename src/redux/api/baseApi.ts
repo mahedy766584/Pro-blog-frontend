@@ -1,7 +1,7 @@
 import type { FetchArgs } from "@reduxjs/toolkit/query";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query/react";
 import { createApi, fetchBaseQuery, type BaseQueryFn } from "@reduxjs/toolkit/query/react";
-import type { RootState } from "../store";
+import type { RootState } from "../../app/store";
 
 
 const baseQuery = fetchBaseQuery({

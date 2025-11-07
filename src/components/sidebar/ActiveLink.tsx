@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import type { TNavLink } from "./navlinks";
+import type { TNavLink } from "./navLinks";
 
 type Props = {
     to: string;
@@ -15,7 +15,7 @@ const ActiveLink = ({ to, label, Icon, onClick }: Props) => {
             onClick={onClick}
             className={({ isActive }) => {
                 const base = `
-                    relative flex items-center gap-2 text-[18px] font-normal px-6 mt-1.5
+                    relative flex items-center gap-2 text-[18px] font-normal px-6! mt-1.5!
                     transition-all duration-300 ease-out group
                 `;
 
@@ -29,7 +29,7 @@ const ActiveLink = ({ to, label, Icon, onClick }: Props) => {
                     before:absolute before:left-0 before:top-0 before:h-0 before:w-0.5
                     before:bg-linear-to-b before:from-gray-400 before:to-gray-700
                     before:rounded-full before:transition-all before:duration-300 before:ease-out
-                    hover:before:h-full ml-2
+                    hover:before:h-full ml-2!
             `;
             }}
         >
