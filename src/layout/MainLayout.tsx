@@ -17,8 +17,8 @@ const MainLayout = () => {
                 {/* Sidebar */}
                 <div
                     className={`
-                    h-full! bg-glass! backdrop-blur-xl!  transition-all! duration-500! ease-in-out!
-                    ${isSidebarOpen ? "w-60 opacity-100!" : "-ml-40!"}
+                    h-full! bg-glass! backdrop-blur-xl!  lg:transition-all! lg:duration-500! lg:ease-in-out! hidden! lg:flex!
+                    ${isSidebarOpen ? "lg:w-60 opacity-100!" : "lg:-ml-40!"}
                     overflow-hidden!
                         `}
                 >
@@ -32,19 +32,19 @@ const MainLayout = () => {
                 {/* Middle Content */}
                 <div
                     className={`
-                        border-x! relative! border-main! h-full! transition-all! duration-500! ease-in-out!
-                        ${isSidebarOpen ? "flex-[0.6]!" : "flex-[0.7]!"}
+                        border-x! relative! border-main! h-full! lg:transition-all! lg:duration-500! lg:ease-in-out!
+                        ${isSidebarOpen ? "lg:flex-[0.6]! w-full!" : "lg:flex-[0.7]! w-full!"}
                         px-6!
                     `}
                 >
                     <Outlet />
-                    <h1 className={`mt-8! ${isSidebarOpen ? '' : 'ml-9!'}`}>Middle side</h1>
+                    <h1 className={`mt-8! ${isSidebarOpen ? '' : 'lg:ml-9!'}`}>Middle side</h1>
                 </div>
 
                 {/* Right Sidebar */}
                 <div
                     className={`
-            h-full! transition-all! duration-500! ease-in-out!
+            h-full! transition-all! duration-500! ease-in-out! hidden! lg:flex!
             ${isSidebarOpen ? "flex-[0.3]!" : "flex-[0.3]!"}
         `}
                 >
