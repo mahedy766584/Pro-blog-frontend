@@ -10,7 +10,7 @@ type HeaderProps = {
 const Header = ({ onMenuClick }: HeaderProps) => {
     return (
         <>
-            <div className='hidden lg:flex! items-center! justify-between! px-8! py-3! border-b-[0.8px! border-main!'>
+            <div className='hidden lg:flex! items-center! justify-between! px-8! py-3! border! border-b-[0.8px! border-main!'>
                 <div className='flex items-center gap-7'>
                     <Menu onClick={onMenuClick}
                         className='text-sec! cursor-pointer!'
@@ -22,14 +22,14 @@ const Header = ({ onMenuClick }: HeaderProps) => {
                     </div>
                 </div>
                 <div className='flex items-center gap-7'>
-                    <span className='flex items-center gap-1.5 cursor-pointer'>
-                        <SquarePen className='text-sec' />Write
+                    <span className='flex items-center text-sec! hover:text-main! gap-1.5 cursor-pointer'>
+                        <SquarePen />Write
                     </span>
-                    <Bell className='text-sec cursor-pointer' />
+                    <Bell className='text-sec cursor-pointer hover:text-main!' />
                     <Drawer />
                 </div>
             </div>
-            <div className='lg:hidden flex justify-between px-3! py-3!'>
+            <div className='lg:hidden flex justify-between px-3! py-3! border! border[0.8px]! border-main!'>
                 <div className='flex items-center gap-5'>
                     <DrawerSm />
                     <Logo />

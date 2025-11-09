@@ -1,10 +1,22 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
+import LandingPage from "@/layouts/LandingPage";
+import MainLayout from "@/layouts/MainLayout";
 
-const router =  createBrowserRouter([
+const router = createBrowserRouter([
+    {
+        path: "/landing",
+        errorElement: <p>Page not found</p>,
+        element: <LandingPage />,
+    },
     {
         path: "/",
-        element: <App/>,
+        element: (
+            <MainLayout/>
+        ),
+        children: [
+
+        ],
+        errorElement: <p>Page not found</p>
     }
 ]);
 

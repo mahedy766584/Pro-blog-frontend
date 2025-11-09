@@ -1,5 +1,4 @@
-import ActiveLink from "@/components/sidebar/ActiveLink";
-import { navLinks } from "@/components/sidebar/navLinks";
+import Sidebar from "@/components/sidebar/Sidebar";
 import Header from "@/shared/Header";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
@@ -15,19 +14,7 @@ const MainLayout = () => {
             <div className="flex h-[calc(100vh-70px)]! transition-all! duration-500! ease-in-out!">
 
                 {/* Sidebar */}
-                <div
-                    className={`
-                    h-full! bg-glass! backdrop-blur-xl!  lg:transition-all! lg:duration-500! lg:ease-in-out! hidden! lg:flex!
-                    ${isSidebarOpen ? "lg:w-60 opacity-100!" : "lg:-ml-40!"}
-                    overflow-hidden!
-                        `}
-                >
-                    <nav className="flex! flex-col! gap-6! mt-6!">
-                        {navLinks.map((link) => (
-                            <ActiveLink key={link.to} to={link.to} label={link.label} Icon={link.Icon} />
-                        ))}
-                    </nav>
-                </div>
+                <Sidebar isSidebarOpen={isSidebarOpen}/>
 
                 {/* Middle Content */}
                 <div

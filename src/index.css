@@ -46,6 +46,7 @@
 
   --accent: #20b659;
   --border: #2c2c2c;
+  --border-secondary: #1e1e1e;
 
   --border-radius: 8px;
 }
@@ -69,6 +70,10 @@
   border-color: var(--border);
 }
 
+@utility border-sec {
+  border-color: var(--border-secondary);
+}
+
 @utility text-accent {
   color: var(--accent);
 }
@@ -80,10 +85,6 @@ body{
   background-color: var(--bg-main);
 }
 
-
-body {
-  background-color: var(--bg-main);
-}
 
 
 :focus {

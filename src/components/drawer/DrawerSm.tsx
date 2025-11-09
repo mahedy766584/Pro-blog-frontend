@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Drawer, Space } from 'antd';
 import { Menu } from 'lucide-react';
 import Logo from '@/shared/Logo';
+import { navLinks } from '../sidebar/navLinks';
+import ActiveLink from '../sidebar/ActiveLink';
 
 const DrawerSm: React.FC = () => {
     const [open, setOpen] = useState(false);
@@ -36,18 +38,16 @@ const DrawerSm: React.FC = () => {
                     [&.ant-drawer-open_.ant-drawer-mask]:opacity-100
                     "
                 width={250}
+                title={<Logo />}
                 placement="left"
                 onClose={onClose}
                 open={open}
-                extra={
-                    <Space className='right-20'>
-                        <Logo/>
-                    </Space>
-                }
             >
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+                <nav className="flex! flex-col! gap-6!">
+                    {navLinks.map((link) => (
+                        <ActiveLink key={link.to} to={link.to} label={link.label} Icon={link.Icon} />
+                    ))}
+                </nav>
             </Drawer>
         </>
     );
