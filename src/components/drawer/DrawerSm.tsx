@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Drawer, Space } from 'antd';
 import { Menu } from 'lucide-react';
-import Logo from '@/shared/Logo';
+import Logo from '@/components/Logo';
 import { navLinks } from '../sidebar/navLinks';
 import ActiveLink from '../sidebar/ActiveLink';
 

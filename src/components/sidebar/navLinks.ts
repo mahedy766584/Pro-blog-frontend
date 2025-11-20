@@ -7,9 +7,9 @@ export type TNavLink = {
 };
 
 export const navLinks: TNavLink[] = [
-  { to: "/", label: "Home", Icon: Home },
-  { to: "/library", label: "Library", Icon: BookOpen },
-  { to: "/profile", label: "Profile", Icon: User },
-  { to: "/stories", label: "Stories", Icon: PenTool },
-  { to: "/stats", label: "Stats", Icon: BarChart2 },
+  { to: "/home", label: "Home", Icon: Home },
+  { to: "/home/library", label: "Library", Icon: BookOpen },
+  { to: "/home/profile", label: "Profile", Icon: User },
+  { to: "/home/stories", label: "Stories", Icon: PenTool },
+  { to: "/home/stats", label: "Stats", Icon: BarChart2 },
 ];

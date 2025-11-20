@@ -1,7 +1,8 @@
 import { Bell, Menu, Search, SquarePen } from 'lucide-react';
-import Drawer from "../components/drawer/DrawerLg";
-import Logo from './Logo';
 import DrawerSm from '@/components/drawer/DrawerSm';
+import { Drawer } from 'antd';
+import Logo from '../../Logo';
+import DrawerLg from '../../drawer/DrawerLg';
 
 type HeaderProps = {
     onMenuClick: () => void;
@@ -26,7 +27,7 @@ const Header = ({ onMenuClick }: HeaderProps) => {
                         <SquarePen />Write
                     </span>
                     <Bell className='text-sec cursor-pointer hover:text-main!' />
-                    <Drawer />
+                    <DrawerLg />
                 </div>
             </div>
             <div className='lg:hidden flex justify-between px-3! py-3! border! border[0.8px]! border-main!'>

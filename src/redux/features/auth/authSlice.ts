@@ -1,10 +1,12 @@
 import type { RootState } from "@/redux/store";
 import { createSlice } from "@reduxjs/toolkit";
 
+export type TRole = "user" | "author" | "admin";
+
 type TUser = {
     userId: string;
     userName: string;
-    role: string;
+    role: TRole;
     iat: number;
     exp: number;
 };

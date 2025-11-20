@@ -1,7 +1,8 @@
 import type { FetchArgs } from "@reduxjs/toolkit/query";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query/react";
 import { createApi, fetchBaseQuery, type BaseQueryFn } from "@reduxjs/toolkit/query/react";
-import type { RootState } from "../../app/store";
+import type { RootState } from "../store";
+import { logout, setUser } from "../features/auth/authSlice";
 
 
 const baseQuery = fetchBaseQuery({
@@ -23,10 +24,19 @@ const baseQueryWithRefreshToken: BaseQueryFn<
     FetchBaseQueryError
 > = async (args, api, extraOption) => {
 
-    const result = await baseQuery(args, api, extraOption);
+    let result = await baseQuery(args, api, extraOption);
 
-    // const errorStatus = result.error?.status;
-    // const errorMessage = result.error?.data as {message?: string} | undefined;
+    const newToken = result?.meta?.response?.headers?.get("x-new-token");
+    if (newToken) {
+        const user = (api.getState() as RootState).auth.user;
+        api.dispatch(setUser({ user, token: newToken }));
+        result = await baseQuery(args, api, extraOption);
+    }
+
+    if (result.error?.status === 401) {
+        api.dispatch(logout());
+    }
+
 
     return result;
 };

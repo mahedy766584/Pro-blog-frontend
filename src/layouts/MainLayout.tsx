@@ -1,5 +1,5 @@
+import Header from "@/components/common/shared/Header";
 import Sidebar from "@/components/sidebar/Sidebar";
-import Header from "@/shared/Header";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 
@@ -14,7 +14,7 @@ const MainLayout = () => {
             <div className="flex h-[calc(100vh-70px)]! transition-all! duration-500! ease-in-out!">
 
                 {/* Sidebar */}
-                <Sidebar isSidebarOpen={isSidebarOpen}/>
+                <Sidebar isSidebarOpen={isSidebarOpen} />
 
                 {/* Middle Content */}
                 <div
@@ -25,7 +25,7 @@ const MainLayout = () => {
                     `}
                 >
                     <Outlet />
-                    <h1 className={`mt-8! ${isSidebarOpen ? '' : 'lg:ml-9!'}`}>Middle side</h1>
+                    {/* <h1 className={`mt-8! ${isSidebarOpen ? '' : 'lg:ml-9!'}`}>Middle side</h1> */}
                 </div>
 
                 {/* Right Sidebar */}

@@ -12,6 +12,7 @@ const ActiveLink = ({ to, label, Icon, onClick }: Props) => {
     return (
         <NavLink
             to={to}
+            end={to === "/home"}
             onClick={onClick}
             className={({ isActive }) => {
                 const base = `

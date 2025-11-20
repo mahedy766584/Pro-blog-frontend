@@ -1,8 +1,9 @@
-import Logo from "@/shared/Logo";
-import { Button } from "antd";
+import Logo from "@/components/Logo";
 import { NavLink } from "react-router-dom";
-import bgImage from "../assets/landingPageBG/bg2.png";
+import bgImage from "../../assets/landingPageBG/bg2.png";
 import { footerLink, navLinks } from "./linksItems";
+import ModalLogin from "../auth/ModalLogin";
+import ProBlogButton from "@/components/common/button/ProBlogButton";
 
 const LandingPage = () => {
     return (
@@ -17,23 +18,22 @@ const LandingPage = () => {
                             </NavLink>
                         ))}
                     </div>
-                    <Button color="default" variant="solid">
-                        Get started
-                    </Button>
+                    <ModalLogin />
                 </div>
             </nav>
 
             <div className="lg:h-[calc(100vh-110px)]! gap-10! flex justify-between items-center lg:px-16! border-b-[0.5px]! lg:py-0 py-6! h-[80vh]">
-                <div className="space-y-4! lg:text-start text-center">
+                <div className="space-y-5! lg:text-start text-center">
 
                     <h1 className="text-main! font-bold! lg:text-8xl! text-4xl! font-body">
                         The Home <br /> <span className="tracking-wide!">of Big Ideas</span>
                     </h1>
 
                     <p className="lg:text-2xl text-main! ">Where storytellers, thinkers, and dreamers connect through imagination.</p>
-                    <Button color="default" shape="round" variant="solid" size={"large"} className="px-8! py-3!">
+
+                    <ProBlogButton shape="round" size={"large"} className="px-8! py-3!">
                         Explore an idea
-                    </Button>
+                    </ProBlogButton>
 
                 </div>
                 <div className="lg:flex hidden">

@@ -13,9 +13,9 @@ const ThemeToggleRound: React.FC = () => {
       aria-label="Toggle theme"
       onClick={() => dispatch(toggleTheme())}
       className="
-        inline-flex items-center justify-center w-12 h-12 rounded-full
-        bg-white/90 dark:bg-black/80 backdrop-blur-sm
-        shadow-sm dark:shadow-md
+        inline-flex items-center justify-center
+        dark:bg-black/80 backdrop-blur-sm shadow-none! cursor-pointer!
+        dark:shadow-md
         transition-all duration-300 ease-in-out
         hover:scale-105 active:scale-95
         focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-300
