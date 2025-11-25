@@ -42,7 +42,6 @@ const SignUpModal = ({ setOpenSignup, openSignup, handleBackToLogin }: TSignUpMo
 
     return (
         <Fragment>
-            {/* Responsive */}
             <Modal
                 title={<p className="text-center py-5 mb-7!">Welcome <span className="text-main font-bold text-xl!">Pro Blog.</span></p>}
                 centered
@@ -51,7 +50,7 @@ const SignUpModal = ({ setOpenSignup, openSignup, handleBackToLogin }: TSignUpMo
                 width={modalWidth}
                 footer={null}
             >
-                <div className="flex mx-auto! flex-col justify-center items-center">
+                <div className="flex mx-auto! lg:px-10!  flex-col justify-center items-center">
                     <div className="w-full!">
                         <ProBlogForm onSubmit={onSubmit}>
                             <Row gutter={15}>

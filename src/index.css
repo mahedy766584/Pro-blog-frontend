@@ -1,6 +1,5 @@
-@import "tailwindcss/preflight";
 @import "tailwindcss";
-@import "tailwindcss/utilities";
+
 
 
 @import "@fontsource-variable/roboto";
@@ -103,3 +102,20 @@ body{
     transition-duration: 0.01ms !important;
   }
 }
+
+@layer components {
+  .blog-content h1 {
+    @apply text-4xl font-extrabold text-main mb-4;
+  }
+  .blog-content h2 {
+    @apply text-2xl font-bold text-sec mb-3;
+  }
+  .blog-content p {
+    @apply text-base leading-relaxed text-main mb-3;
+  }
+  .blog-content hr {
+    @apply border-t-2 border-gray-300 my-6;
+  }
+}
+
+

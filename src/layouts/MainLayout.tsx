@@ -19,7 +19,7 @@ const MainLayout = () => {
                 {/* Middle Content */}
                 <div
                     className={`
-                        border-x! relative! border-main! h-full! lg:transition-all! lg:duration-500! lg:ease-in-out!
+                        border-x! relative! border-main! h-full! lg:transition-all! lg:duration-500! lg:ease-in-out! overflow-auto!
                         ${isSidebarOpen ? "lg:flex-[0.6]! w-full!" : "lg:flex-[0.7]! w-full!"}
                         px-6!
                     `}

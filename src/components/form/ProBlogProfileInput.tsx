@@ -23,12 +23,10 @@ const ProBlogProfileInput = ({ name, label, defaultImage }: TProfileImageProps) 
                 control={control}
                 render={({ field: { onChange } }) => (
                     <div className="relative w-full! rounded-md flex! justify-center! items-center! mx-auto! border-main! border! hover:border-red-200!">
-
-                        {/* Image Upload Wrapper */}
                         <Upload
                             showUploadList={false}
                             beforeUpload={() => false}
-                            fileList={[]} // Always reset
+                            fileList={[]}
                             onChange={(info) => {
                                 const file = info.fileList[0]?.originFileObj;
                                 if (file) {
