@@ -1,3 +1,4 @@
+import BlogDetails from "@/components/blog/BlogDetails";
 import MainLayout from "@/layouts/MainLayout";
 import ProtectedRoute from "@/layouts/ProtectedRoute";
 import SmartHome from "@/pages/home/SmartHome";
@@ -18,6 +19,7 @@ const userRoutes = [
             { path: "library", element: <Library /> },
             { path: "profile", element: <Profile /> },
             { path: "stories", element: <Stories /> },
+            { path: "blog/:blogId/:slug", element: <BlogDetails /> },
         ],
     },
 ];

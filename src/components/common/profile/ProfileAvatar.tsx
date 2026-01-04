@@ -2,20 +2,23 @@ import { UserOutlined } from "@ant-design/icons";
 import { Avatar } from "antd";
 
 export type TProfileProps = {
-    profileImage: string;
-    authorLastName: string;
-    authorFirstName: string;
+    profileImage: string | undefined;
+    userLastName: string;
+    userFirstName: string;
+    authorLastName?: string;
+    authorFirstName?: string;
 };
 
-const ProfileAvatar = ({ profileImage, authorFirstName, authorLastName }: TProfileProps) => {
+const ProfileAvatar = ({ profileImage, userFirstName, userLastName }: TProfileProps) => {
     return (
-        <div className="flex items-center gap-3 mb-3 cursor-pointer w-fit">
+        <div className="flex items-center gap-3  cursor-pointer w-fit">
             <Avatar
                 src={profileImage}
                 icon={!profileImage && <UserOutlined />}
+                size={'small'}
             />
-            <span className="hover:underline text-main font-normal">
-                {authorFirstName} {authorLastName}
+            <span className="text-[#777777] font-normal">
+                {userFirstName} {userLastName}
             </span>
         </div>
     );

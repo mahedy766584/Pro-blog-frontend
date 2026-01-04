@@ -1,4 +1,4 @@
-import type { TAuthor, TBlog } from "./blog.types"
+import type { TBlog, TUser } from "./blog.types"
 
 export type TRootComment = {
     _id?: string;
@@ -13,7 +13,7 @@ export type TRootComment = {
 export type TComment = {
     _id?: string
     blogPost: TBlog
-    author: TAuthor
+    user: TUser
     content?: string
     contentType?: string
     renderedHtml?: string

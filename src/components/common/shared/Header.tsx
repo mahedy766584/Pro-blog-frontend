@@ -1,46 +1,120 @@
-import { Bell, Menu, Search, SquarePen } from 'lucide-react';
-import DrawerSm from '@/components/drawer/DrawerSm';
-import { Drawer } from 'antd';
-import Logo from '../../Logo';
-import DrawerLg from '../../drawer/DrawerLg';
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import {
+    ChevronDown,
+    Menu,
+    X,
+    Moon,
+    Search,
+    SquarePen,
+} from "lucide-react";
 
-type HeaderProps = {
-    onMenuClick: () => void;
-};
+import Logo from "@/components/Logo";
+import { NAV_ITEMS } from "@/components/sidebar/navLinks";
+import NavDropdown from "./NavDropdown";
 
-const Header = ({ onMenuClick }: HeaderProps) => {
+const Header = () => {
+    const [mobileOpen, setMobileOpen] = useState(false);
+
     return (
-        <>
-            <div className='hidden lg:flex! items-center! justify-between! px-8! py-3! border! border-b-[0.8px! border-main!'>
-                <div className='flex items-center gap-7'>
-                    <Menu onClick={onMenuClick}
-                        className='text-sec! cursor-pointer!'
-                    />
-                    <Logo />
-                    <div className='flex! gap-3! items-center! bg-gray-100! opacity-70! px-5! rounded-2xl!'>
-                        <Search className='text-sec' />
-                        <input type='search' placeholder='Search' className='outline-0! border-0! px-1! py-2!' />
+        <header className="bg-[#E8F3F3] text-[#333333]">
+            <nav className="mx-auto flex max-w-6xl items-center justify-between py-4">
+
+                <Logo />
+
+                {/* Desktop Navigation */}
+                <div className="hidden items-center gap-6 lg:flex">
+                    {NAV_ITEMS.map((item) =>
+                        "children" in item ? (
+                            <NavDropdown key={item.label} item={item} />
+                        ) : (
+                            <NavLink
+                                key={item.label}
+                                to={item.href}
+                                className={({ isActive }) =>
+                                    `text-[18px] font-normal transition-colors
+                                    ${isActive ? "text-[#00AAA1]" : "hover:text-[#00AAA1]"}`
+                                }
+                            >
+                                {item.label}
+                            </NavLink>
+                        )
+                    )}
+                </div>
+
+                {/* Right Actions (Desktop) */}
+                <div className="hidden items-center gap-6 lg:flex">
+                    <Search size={20} className="cursor-pointer" />
+                    <SquarePen size={20} className="cursor-pointer" />
+
+                    <button className="flex items-center gap-1">
+                        EN <ChevronDown size={16} />
+                    </button>
+
+                    <button className="rounded-md bg-[#00AAA1] p-1 text-white">
+                        <Moon size={20} />
+                    </button>
+                </div>
+
+                {/* Mobile Menu Button */}
+                <button
+                    onClick={() => setMobileOpen(!mobileOpen)}
+                    className="lg:hidden"
+                >
+                    {mobileOpen ? <X size={26} /> : <Menu size={26} />}
+                </button>
+            </nav>
+
+            {/* Mobile Navigation */}
+            {mobileOpen && (
+                <div className="lg:hidden border-t bg-[#E8F3F3] px-4 py-4">
+                    <div className="flex flex-col gap-4">
+                        {NAV_ITEMS.map((item) =>
+                            "children" in item ? (
+                                <details key={item.label} className="group">
+                                    <summary className="flex cursor-pointer items-center justify-between text-[18px]">
+                                        {item.label}
+                                        <ChevronDown
+                                            size={16}
+                                            className="transition-transform group-open:rotate-180"
+                                        />
+                                    </summary>
+
+                                    <div className="mt-2 ml-4 flex flex-col gap-2">
+                                        {item.children?.map((child) => (
+                                            <Link
+                                                key={child.href}
+                                                to={child.href}
+                                                className="text-[16px] text-gray-700 hover:text-cyan-500"
+                                                onClick={() => setMobileOpen(false)}
+                                            >
+                                                {child.label}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </details>
+                            ) : (
+                                <Link
+                                    key={item.label}
+                                    to={item.href}
+                                    className="text-[18px] hover:text-cyan-500"
+                                    onClick={() => setMobileOpen(false)}
+                                >
+                                    {item.label}
+                                </Link>
+                            )
+                        )}
+
+                        {/* Mobile Actions */}
+                        <div className="mt-4 flex items-center gap-5">
+                            <Search size={20} />
+                            <SquarePen size={20} />
+                            <Moon size={20} />
+                        </div>
                     </div>
                 </div>
-                <div className='flex items-center gap-7'>
-                    <span className='flex items-center text-sec! hover:text-main! gap-1.5 cursor-pointer'>
-                        <SquarePen />Write
-                    </span>
-                    <Bell className='text-sec cursor-pointer hover:text-main!' />
-                    <DrawerLg />
-                </div>
-            </div>
-            <div className='lg:hidden flex justify-between px-3! py-3! border! border[0.8px]! border-main!'>
-                <div className='flex items-center gap-5'>
-                    <DrawerSm />
-                    <Logo />
-                </div>
-                <div className='flex items-center gap-5'>
-                    <button><Search className='text-sec' /></button>
-                    <Drawer />
-                </div>
-            </div>
-        </>
+            )}
+        </header>
     );
 };
 

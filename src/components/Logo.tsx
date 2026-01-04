@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Logo = () => {
     return (
-        <NavLink to={'/'}><h1 className='text-3xl! font-bold! font-body! text-main!'>Pro Blog</h1></NavLink>
+        <NavLink to={'/'}><h1 className='text-3xl! font-bold! font-body! text-[#333333]!'><span className="bg-[#00AAA1] text-[#FFFFFF]">Pro</span> <span className="text-2xl">Blog</span><span className="text-[#00AAA1]">.</span></h1></NavLink>
     );
 };
 

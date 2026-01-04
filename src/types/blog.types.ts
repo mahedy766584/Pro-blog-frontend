@@ -1,4 +1,4 @@
-export type TAuthor = {
+export type TUser = {
     name: {
         firstName: string;
         lastName: string;
@@ -7,13 +7,22 @@ export type TAuthor = {
     _id: string;
 };
 
+export type TCategory = {
+    name: string;
+};
+
 export type TBlog = {
     _id: string;
     title: string;
     coverImage: string;
     excerpt: string;
-    author: TAuthor;
+    user?: TUser | undefined;
+    author?: TUser | undefined;
     createdAt?: Date;
+    profileImage?: string;
+    readTime?: string;
+    slug?: string;
+    category?: TCategory;
 };
 
 export type BlogCardProps = {

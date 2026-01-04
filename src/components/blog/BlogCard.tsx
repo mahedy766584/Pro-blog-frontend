@@ -3,14 +3,14 @@ import { useCreateBookmarkMutation } from "@/redux/features/bookMark/bookMarkMan
 import { useAddLikeMutation, useGetLikeByBlogPostQuery } from "@/redux/features/like/likeManagement.api";
 import type { BlogCardProps } from "@/types";
 import BlogCardSkeleton from "@/utils/BlogCardSkeleton";
-import {  Divider } from "antd";
-import { Bookmark, MessageCircle, ThumbsUp } from "lucide-react";
 import moment from "moment";
 import { useState } from "react";
 import { toast } from "sonner";
-import CommentDrawer from "../comment/CommentDrawer";
 import { useGetCommentByBlogPostQuery } from "@/redux/features/comment/commentManagement.api";
 import ProfileAvatar from "../common/profile/ProfileAvatar";
+import { Link } from "react-router-dom";
+import BlogActions from "./BlogActions";
+import { CalendarDays, Clock } from "lucide-react";
 
 
 const BlogCard = ({ blog, loading = false }: BlogCardProps) => {
@@ -64,57 +64,58 @@ const BlogCard = ({ blog, loading = false }: BlogCardProps) => {
     };
 
     return (
-        <div key={blog._id} className="container mx-auto py-2 px-4">
+        <div key={blog._id} className="container mx-auto px-4 bg-[#FFFFFF] py-6 rounded-md">
 
-            <ProfileAvatar
-                profileImage={blog.author?.profileImage}
-                authorFirstName={blog.author.name?.firstName}
-                authorLastName={blog.author.name?.lastName}
-            />
+            <div className="flex flex-col space-y-2">
+                <Link to={`/home/blog/${blog?._id}/${blog?.slug}`}>
+                    <div className="lg:flex lg:space-y-0 space-y-2 justify-between gap-5 cursor-pointer ">
 
-            <div className="flex items-center justify-between gap-5 cursor-pointer">
-                <div>
-                    <h1 className="text-2xl text-main font-bold mb-4">{blog.title}</h1>
-                    <p className="text-sec">{blog.excerpt.slice(0, 60)}...</p>
-                </div>
+                        <img
+                            className="lg:w-[220px] lg:h-[220px] object-cover rounded"
+                            alt={blog.title}
+                            src={blog.coverImage}
+                        />
 
-                <img
-                    className="w-[200px] h-[150px] object-cover rounded"
-                    alt={blog.title}
-                    src={blog.coverImage}
-                />
+                        <div className="relative space-y-3.5">
+
+                            <button className="bg-[#DFF1F0] text-[#666666] px-3 py-0.5 rounded-[3px] text-sm font-normal">{blog.category?.name}</button>
+
+                            <h1 className="text-2xl text-[#222222] font-bold">{blog.title}</h1>
+
+
+                            <div className="text-[#777777] flex items-center gap-3">
+
+                                <ProfileAvatar
+                                    profileImage={blog.author?.profileImage}
+                                    userFirstName={blog.author?.name?.firstName ?? ""}
+                                    userLastName={blog.author?.name?.lastName ?? ""}
+                                />
+
+                                <div className="h-5 w-px rounded-md bg-[#777777]"></div>
+
+                                <span className="flex items-center gap-2">
+                                    <CalendarDays size={16} />
+                                    <p>{postedDate}</p>
+                                </span>
+
+                                <div className="h-5 w-px rounded-md bg-[#777777]"></div>
+
+                                <div className="flex items-center gap-2">
+                                    <Clock size={16} />
+                                    {blog?.readTime}
+                                </div>
+
+                            </div>
+
+                            <p className="text-[#555555] text-[18px]">{blog?.excerpt?.slice(0, 90)}...</p>
+
+                        </div>
+                    </div>
+                </Link>
+                <BlogActions onLike={handleLike} likeCount={likeCount} onOpenComment={showDrawer} onBookmark={handleBookMark} open={open} setOpen={setOpen} blogId={blogId} commentCount={commentCount} />
             </div>
 
-
-            {/* Button side */}
-
-            <div className="mt-6 flex items-center justify-between text-sec">
-                {/* Right side */}
-                <div className="flex items-center gap-6">
-                    <p>{postedDate}</p>
-                    <span onClick={handleLike} className="flex items-center gap-2 cursor-pointer">
-                        <ThumbsUp size={18} />
-                        {likeCount ? <p>{likeCount}</p> : ""}
-                    </span>
-                    <span onClick={showDrawer} className="flex items-center gap-2 cursor-pointer">
-                        <MessageCircle size={18} />
-                        {commentCount ? <p>{commentCount}</p> : ""}
-                    </span>
-                    <CommentDrawer open={open} setOpen={setOpen} blogPost={blogId!} />
-                </div>
-
-                {/* Left side */}
-                <div>
-                    <span onClick={handleBookMark} className="cursor-pointer">
-                        <Bookmark size={18} />
-                    </span>
-                </div>
-
-            </div>
-
-            <Divider />
-
-        </div>
+        </div >
     );
 };
 

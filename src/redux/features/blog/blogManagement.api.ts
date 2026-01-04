@@ -10,6 +10,12 @@ const blogManagementApi = baseApi.injectEndpoints({
                         method: "GET",
                     }
                 }
+            }),
+            getSingleBlog: builder.query({
+                query: (blogId) => ({
+                    url: `/blogs/${blogId}`,
+                    method: "GET",
+                })
             })
         }
     )
@@ -17,4 +23,5 @@ const blogManagementApi = baseApi.injectEndpoints({
 
 export const {
     useGetAllBlogQuery,
+    useGetSingleBlogQuery,
 } = blogManagementApi;

@@ -1,15 +1,37 @@
-import { Home, BookOpen, User, PenTool, BarChart2 } from "lucide-react";
+export type TNavItem =
+  | {
+      label: string;
+      href: string;
+      children?: never;
+    }
+  | {
+      label: string;
+      children: {
+        label: string;
+        href: string;
+      }[];
+      href?: never;
+    };
 
-export type TNavLink = {
-  to: string;
-  label: string;
-  Icon: React.ComponentType<{ className?: string }>;
-};
 
-export const navLinks: TNavLink[] = [
-  { to: "/home", label: "Home", Icon: Home },
-  { to: "/home/library", label: "Library", Icon: BookOpen },
-  { to: "/home/profile", label: "Profile", Icon: User },
-  { to: "/home/stories", label: "Stories", Icon: PenTool },
-  { to: "/home/stats", label: "Stats", Icon: BarChart2 },
+export const NAV_ITEMS: TNavItem[] = [
+  {
+    label: "Home",
+    href: "/home",
+  },
+  {
+    label: "Categories",
+    children: [
+      { label: "Web Development", href: "/home/library/web" },
+      { label: "UI/UX Design", href: "/home/library/ui" },
+      { label: "Backend", href: "/home/library/backend" },
+    ],
+  },
+  {
+    label: "Pages",
+    children: [
+      { label: "Profile", href: "/home/profile" },
+      { label: "Settings", href: "/home/settings" },
+    ],
+  },
 ];

@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Divider, Drawer } from "antd";
 import { useState } from "react";
-import ReactQuill from "react-quill-new";
 import 'react-quill-new/dist/quill.snow.css';
 import ProBlogButton from "../common/button/ProBlogButton";
 import { useCreateCommentMutation, useGetCommentByBlogPostQuery } from "@/redux/features/comment/commentManagement.api";
 import CommentCart from "./CommentCart";
 import type { TComment } from "@/types/comment.type";
+import CommentInput from "./CommentInput";
 
 type CommentDrawerProps = {
     open: boolean;
@@ -55,24 +55,8 @@ const CommentDrawer = ({ open, setOpen, blogPost }: CommentDrawerProps) => {
             open={open}
             width={420}
         >
-            <ReactQuill
-                theme="snow"
-                value={comment}
-                onChange={setComment}
-                placeholder="Write your thoughts..."
-                style={{
-                    height: "100px",
-                    marginBottom: "70px",
-                }}
-                modules={{
-                    toolbar: [
-                        ["bold", "italic", "underline"],
-                        [{ list: "ordered" }, { list: "bullet" }],
-                        ["link"],
-                        ["clean"],
-                    ],
-                }}
-            />
+
+            <CommentInput comment={comment} setComment={setComment}/>
 
             <ProBlogButton
                 shape="round"

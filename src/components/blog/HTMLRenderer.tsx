@@ -7,7 +7,7 @@ type HTMLRendererProps = {
 const HTMLRenderer = ({ html }: HTMLRendererProps) => {
 
     const clean = DOMPurify.sanitize(html)
-    console.log(clean)
+    
     return (
         <div
             className="blog-content"

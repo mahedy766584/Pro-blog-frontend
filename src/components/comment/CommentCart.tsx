@@ -10,23 +10,21 @@ type SingleCommentProps = {
 
 const CommentCart = ({ comment }: SingleCommentProps) => {
 
-    console.log(comment.blogPost)
-    console.log(comment)
-
     return (
-        <div className="flex items-stat flex-col py-2 px-2 text-sm">
+        <div className="flex items-stat flex-col py-3 px-2 text-sm">
             <ProfileAvatar
-                profileImage={comment.author?.profileImage}
-                authorFirstName={comment.author.name?.firstName}
-                authorLastName={comment.author.name?.lastName}
+                profileImage={comment.user?.profileImage}
+                userFirstName={comment.user.name?.firstName}
+                userLastName={comment.user.name?.lastName}
             />
             <BlogContent blog={{
                 contentType: comment.contentType ?? "html",
                 content: comment.content ?? ""
             }} />
-            <div className="flex items-center gap-6 py-2 text-sec">
-                <span className="cursor-pointer">
+            <div className="flex items-center gap-6 text-sec py-3">
+                <span className="cursor-pointer flex items-center gap-1">
                     <ThumbsUp size={18} />
+                    <p>3</p>
                 </span>
                 <span className="flex items-center gap-1 cursor-pointer hover:text-main">
                     <MessageCircle size={18} />
