@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useGetSingleBlogQuery } from "@/redux/features/blog/blogManagement.api";
+import { useGetSingleBlogQuery } from "@/redux/features/blogManagement.api";
 import BlogCardSkeleton from "@/utils/BlogCardSkeleton";
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
@@ -8,9 +8,9 @@ import ProfileAvatar from "../common/profile/ProfileAvatar";
 import { Divider, Image } from "antd";
 import moment from "moment";
 import ProBlogButton from "../common/button/ProBlogButton";
-import { useAddLikeMutation, useGetLikeByBlogPostQuery } from "@/redux/features/like/likeManagement.api";
-import { useGetCommentByBlogPostQuery } from "@/redux/features/comment/commentManagement.api";
-import { useCreateBookmarkMutation } from "@/redux/features/bookMark/bookMarkManagement.api";
+import { useAddLikeMutation, useGetLikeByBlogPostQuery } from "@/redux/features/likeManagement.api";
+import { useGetCommentByBlogPostQuery } from "@/redux/features/commentManagement.api";
+import { useCreateBookmarkMutation } from "@/redux/features/bookMarkManagement.api";
 import { toast } from "sonner";
 import BlogActions from "./BlogActions";
 

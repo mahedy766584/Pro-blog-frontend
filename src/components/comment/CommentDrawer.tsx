@@ -3,7 +3,7 @@ import { Divider, Drawer } from "antd";
 import { useState } from "react";
 import 'react-quill-new/dist/quill.snow.css';
 import ProBlogButton from "../common/button/ProBlogButton";
-import { useCreateCommentMutation, useGetCommentByBlogPostQuery } from "@/redux/features/comment/commentManagement.api";
+import { useCreateCommentMutation, useGetCommentByBlogPostQuery } from "@/redux/features/commentManagement.api";
 import CommentCart from "./CommentCart";
 import type { TComment } from "@/types/comment.type";
 import CommentInput from "./CommentInput";
@@ -56,7 +56,7 @@ const CommentDrawer = ({ open, setOpen, blogPost }: CommentDrawerProps) => {
             width={420}
         >
 
-            <CommentInput comment={comment} setComment={setComment}/>
+            <CommentInput comment={comment} setComment={setComment} />
 
             <ProBlogButton
                 shape="round"

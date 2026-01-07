@@ -3,7 +3,7 @@ import { baseApi } from "../redux/api/baseApi";
 import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import authReducer from "./features/auth/authSlice";
-import themeReducer from "./features/theme/themeSlice";
+import themeReducer from "./features/themeSlice";
 
 const persistConfig = {
     key: "auth",

@@ -1,4 +1,4 @@
-import { useGetAllBlogQuery } from "@/redux/features/blog/blogManagement.api";
+import { useGetAllBlogQuery } from "@/redux/features/blogManagement.api";
 import BlogCard from "./BlogCard";
 import type { TBlog } from "@/types";
 import { MoveLeft, MoveRight } from "lucide-react";
@@ -24,21 +24,21 @@ const RecentBlog = () => {
             </div>
 
             <div className="mt-16 flex items-center gap-3 justify-center">
-                    <div>
-                        <button className="px-4 gap-1.5 flex items-center justify-center text-[#666666] py-1 border rounded border-solid border-[#666666] hover:bg-[#00AAA1] duration-300 hover:text-white hover:border-white font-normal cursor-pointer "><MoveLeft /> Prev</button>
-                    </div>
-                    <div>
-                        <button className="px-4 gap-1.5 flex items-center justify-center  py-1 border rounded border-solid border-[#666666] bg-[#00AAA1] duration-300 text-white hover:border-white font-normal cursor-pointer ">1</button>
-                    </div>
-                    <div>
-                        <button className="px-4 gap-1.5 flex items-center justify-center text-[#666666] py-1 border rounded border-solid border-[#666666] hover:bg-[#00AAA1] duration-300 hover:text-white hover:border-white font-normal cursor-pointer ">2</button>
-                    </div>
-                    <div>
-                        <button className="px-4 gap-1.5 flex items-center justify-center text-[#666666] py-1 border rounded border-solid border-[#666666] hover:bg-[#00AAA1] duration-300 hover:text-white hover:border-white font-normal cursor-pointer ">3</button>
-                    </div>
-                    <div>
-                        <button className="px-4 gap-1.5 flex items-center justify-center text-[#666666] py-1 border rounded border-solid border-[#666666] hover:bg-[#00AAA1] duration-300 hover:text-white hover:border-white font-normal cursor-pointer "><MoveRight /> Next</button>
-                    </div>
+                <div>
+                    <button className="px-4 gap-1.5 flex items-center justify-center text-[#666666] py-1 border rounded border-solid border-[#666666] hover:bg-[#00AAA1] duration-300 hover:text-white hover:border-white font-normal cursor-pointer "><MoveLeft /> Prev</button>
+                </div>
+                <div>
+                    <button className="px-4 gap-1.5 flex items-center justify-center  py-1 border rounded border-solid border-[#666666] bg-[#00AAA1] duration-300 text-white hover:border-white font-normal cursor-pointer ">1</button>
+                </div>
+                <div>
+                    <button className="px-4 gap-1.5 flex items-center justify-center text-[#666666] py-1 border rounded border-solid border-[#666666] hover:bg-[#00AAA1] duration-300 hover:text-white hover:border-white font-normal cursor-pointer ">2</button>
+                </div>
+                <div>
+                    <button className="px-4 gap-1.5 flex items-center justify-center text-[#666666] py-1 border rounded border-solid border-[#666666] hover:bg-[#00AAA1] duration-300 hover:text-white hover:border-white font-normal cursor-pointer ">3</button>
+                </div>
+                <div>
+                    <button className="px-4 gap-1.5 flex items-center justify-center text-[#666666] py-1 border rounded border-solid border-[#666666] hover:bg-[#00AAA1] duration-300 hover:text-white hover:border-white font-normal cursor-pointer "><MoveRight /> Next</button>
+                </div>
             </div>
         </div>
     );

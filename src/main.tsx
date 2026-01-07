@@ -7,7 +7,7 @@ import { persistor, store } from './redux/store.ts';
 import AppProvider from './AppProvider.tsx';
 import { Toaster } from 'sonner';
 import { PersistGate } from 'redux-persist/integration/react';
-import { router } from './routes/index.tsx';
+import { router } from './routes/routes.tsx';
 
 createRoot(document.getElementById('root')!).render(
     <Provider store={store}>

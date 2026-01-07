@@ -1,4 +1,4 @@
-import { useGetAllAuthorQuery } from "@/redux/features/authors/authorsManagement.api";
+import { useGetAllAuthorQuery } from "@/redux/features/authorsManagement.api";
 import TopAuthorCard from "./TopAuthorCard";
 import type { TAuthor } from "@/types";
 import { instaImages, tagCategories } from "./instImage";

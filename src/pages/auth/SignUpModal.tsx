@@ -3,7 +3,7 @@ import ProBlogForm from "@/components/form/ProBlogForm";
 import ProBlogInput from "@/components/form/ProBlogInput";
 import ProBlogProfileInput from "@/components/form/ProBlogProfileInput";
 import ProBlogTextarea from "@/components/form/ProBlogTextarea";
-import { useAddNewUserMutation } from "@/redux/features/user/userManagement.api";
+import { useAddNewUserMutation } from "@/redux/features/userManagement.api";
 import { modalWidth } from "@/styles/modalWidth";
 import { Col, Modal, Row } from "antd";
 import { Fragment } from "react";

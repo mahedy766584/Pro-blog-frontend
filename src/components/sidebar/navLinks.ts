@@ -17,7 +17,7 @@ export type TNavItem =
 export const NAV_ITEMS: TNavItem[] = [
   {
     label: "Home",
-    href: "/home",
+    href: "/",
   },
   {
     label: "Categories",

@@ -2,7 +2,7 @@
 import React from "react";
 import { Sun, Moon } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { toggleTheme } from "@/redux/features/theme/themeSlice";
+import { toggleTheme } from "@/redux/features/themeSlice";
 
 const ThemeToggleRound: React.FC = () => {
   const dispatch = useAppDispatch();

@@ -1,4 +1,4 @@
-import { useGetAllBlogQuery } from "@/redux/features/blog/blogManagement.api";
+import { useGetAllBlogQuery } from "@/redux/features/blogManagement.api";
 import type { TBlog } from "@/types";
 import RightCard from "./RightCard";
 import ScrollWithIndicator from "@/utils/ScrollWithIndicator";

@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useCreateBookmarkMutation } from "@/redux/features/bookMark/bookMarkManagement.api";
-import { useAddLikeMutation, useGetLikeByBlogPostQuery } from "@/redux/features/like/likeManagement.api";
+import { useCreateBookmarkMutation } from "@/redux/features/bookMarkManagement.api";
+import { useAddLikeMutation, useGetLikeByBlogPostQuery } from "@/redux/features/likeManagement.api";
 import type { BlogCardProps } from "@/types";
 import BlogCardSkeleton from "@/utils/BlogCardSkeleton";
 import moment from "moment";
 import { useState } from "react";
 import { toast } from "sonner";
-import { useGetCommentByBlogPostQuery } from "@/redux/features/comment/commentManagement.api";
+import { useGetCommentByBlogPostQuery } from "@/redux/features/commentManagement.api";
 import ProfileAvatar from "../common/profile/ProfileAvatar";
 import { Link } from "react-router-dom";
 import BlogActions from "./BlogActions";

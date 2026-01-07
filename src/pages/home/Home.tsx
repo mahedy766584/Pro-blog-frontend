@@ -2,8 +2,9 @@ import BlogCard from "@/components/blog/BlogCard";
 import RightCart from "@/components/blog/RightContent";
 import RecentBlog from "@/components/RecentlyPosted/RecentBlog";
 import TopAuthors from "@/components/topAuthors/TopAuthors";
-import { useGetAllBlogQuery } from "@/redux/features/blog/blogManagement.api";
+import { useGetAllBlogQuery } from "@/redux/features/blogManagement.api";
 import type { TBlog } from "@/types";
+
 
 const Home = () => {
     const { data: blogs, isLoading } = useGetAllBlogQuery(undefined);
@@ -42,7 +43,7 @@ const Home = () => {
                     {/* Right side */}
                     <div>
                         <TopAuthors />
-                        
+
                     </div>
                 </div>
 
